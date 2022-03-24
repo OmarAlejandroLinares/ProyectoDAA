@@ -9,3 +9,6 @@ Generate random graphs through 6 different methods, which are:
 * Barabási-Albert Method
 * Dorogovtsev-Mendes Method
 
+For each method, 3 different graphs were generated, which had 30, 100 and 500 nodes.
+Each graph generates a .GV file, which allowed to generate through Gephi, its corresponding .PNG image.
+## 
