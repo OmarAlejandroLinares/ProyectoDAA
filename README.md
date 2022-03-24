@@ -19,3 +19,8 @@ In order to correctly replicate the results obtained with this project, the foll
 3. Open each of the generated files in the *Gephi* software and export them in **.png** format
 
 ## Functioning
+* *edge.py:*
+* *vertex.py:*
+* *models.py:*
+* *graph.py:*
+* *main.py:*
