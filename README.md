@@ -11,3 +11,8 @@ Generate random graphs through 6 different methods, which are:
 
 For each method, 3 different graphs were generated, which had 30, 100 and 500 nodes.  
 Each graph generates a .GV file, which allowed to generate through Gephi, its corresponding .PNG image.
+
+## How to test the project?
+In order to correctly replicate the results obtained with this project, the following steps must be followed:
+1. sip
+2. noup
