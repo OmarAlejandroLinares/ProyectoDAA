@@ -1,5 +1,5 @@
 # Project 1 - Graph generation and management library.
-### Project made by Omar Alejandro Linares Escobar for the subject "Design and Analysis of Algorithms".
+Project made by Omar Alejandro Linares Escobar for the subject "Design and Analysis of Algorithms".
 ## Objective of the project. 
 Generate random graphs through 6 different methods, which are:
 * Merge Method
