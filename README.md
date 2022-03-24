@@ -26,3 +26,4 @@ In order to correctly replicate the results obtained with this project, the foll
 * *main.py:* Finally, the code that allows generating at the user's will, the number of graphs with the model he chooses and their respective parameters.
 
 ## Results
+The results obtained, which are the 18 **.png** images corresponding to the 18 **.gv** files obtained by 3 different tests for each of the 6 models, can be found at *gv/images/*.
