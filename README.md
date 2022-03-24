@@ -16,5 +16,6 @@ Each graph generates a **.gv** file, which allowed to generate through Gephi, it
 In order to correctly replicate the results obtained with this project, the following steps must be followed:
 1. Download the files and store them in the same folder
 2. Run the code *graph* which will store the 18 graph files in a folder called *gv*
-3. Open each of the generated files in the *Gephi* software and export them in **.ong** format
+3. Open each of the generated files in the *Gephi* software and export them in **.png** format
 
+## Functioning
