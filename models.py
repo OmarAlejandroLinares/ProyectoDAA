@@ -231,19 +231,3 @@ def calculate_distance(p1, p2):
     x2, y2 = p2
     d = math.sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2))
     return d
-
-
-
-
-
-def calculate_distance(p1, p2):
-    """
-    Calculate distance between two points
-    param p1: tuple (x,y) point1
-    param p2: tuple (x,y) point2
-    return: distance between two points
-    """
-    x1, y1 = p1
-    x2, y2 = p2
-    d = math.sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2))
-    return d
