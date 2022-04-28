@@ -1,5 +1,6 @@
 import collections
 import sys
+
 from graphviz import Digraph
 from graphviz import Graph as Graphviz
 
@@ -194,3 +195,90 @@ class Graph:
         file.write(dot.source)
         file.close()
         return dot
+        
+    def bfs(self, s):
+        """
+        bfs Breadth-first search (BFS) is an algorithm
+        for traversing or searching graph data structures.
+        It starts at the s node
+        and explores all of the neighbor nodes at the present
+        depth prior to moving on to the nodes at the next depth level.
+        :param s: root node for traversing
+        :return g graph generated according BFS
+        """
+        g = Graph(attr={DIRECTED: True})
+        root = self.get_vertex(s)
+        root.attributes[DISCOVERED] = True
+        q = collections.deque()
+        adjacent_type = '+' if DIRECTED in self.attr and self.attr[
+            DIRECTED] else None
+        # Insert root node in graph and queue
+        g.add_vertex(root)
+        q.append(s)
+
+        while (len(q) > 0):
+            v = q.popleft()
+            for e in self.get_adjacent_vertices_by_vertex(v, adjacent_type):
+                w = self.get_vertex(e)
+                if DISCOVERED not in w.attributes or w.attributes[
+                    DISCOVERED] is False:
+                    w.attributes[DISCOVERED] = True
+                    q.append(w.id)
+                    g.add_vertex(w)
+                    g.add_edge(edge.Edge(v, e), True)
+        return g
+
+    def dfs(self, s):
+        """
+        dfs Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. 
+        The algorithm starts at the root node and explores as far as possible along each branch before backtracking.
+        :param s: root node for traversing
+        :return g graph generated according DFS 
+        """
+        g = Graph(attr={DIRECTED: True})
+        adjacent_type = '+' if DIRECTED in self.attr and self.attr[
+            DIRECTED] else None
+        # Insert s root node in stack 
+        stack = collections.deque()
+        # Initial node does not have origin, it is represented by # 
+        stack.append(('#', s))
+
+        while (len(stack) > 0):
+            (source, target) = stack.pop()
+            w = self.get_vertex(target)
+            if DISCOVERED not in w.attributes or w.attributes[
+                DISCOVERED] is False:
+                w.attributes[DISCOVERED] = True
+                g.add_vertex(w)
+                if (source != '#'):
+                    g.add_edge(edge.Edge(source, w.id), True)
+                for e in self.get_adjacent_vertices_by_vertex(w.id,
+                                                              adjacent_type):
+                    stack.append((w.id, e))
+        return g
+
+    def dfs_r(self, s):
+        """
+        dfs Depth-first search (DFS) recursive is an algorithm for traversing or searching tree
+        or graph data structures. 
+        The algorithm starts at the root node and explores as far as possible along each branch
+        before backtracking.
+        :param s: root node for traversing
+        :return g graph generated according DFS 
+        """
+        g = Graph(attr={DIRECTED: True})
+        return self.dfs_rec(g, ('#', s))
+
+    def dfs_rec(self, g, s):
+        adjacent_type = '+' if DIRECTED in self.attr and self.attr[
+            DIRECTED] else None
+        (source, target) = s
+        w = self.get_vertex(target)
+        if DISCOVERED not in w.attributes or w.attributes[DISCOVERED] is False:
+            w.attributes[DISCOVERED] = True
+            g.add_vertex(w)
+            if (source != '#'):
+                g.add_edge(edge.Edge(source, w.id), True)
+            for e in self.get_adjacent_vertices_by_vertex(w.id, adjacent_type):
+                self.dfs_rec(g, (w.id, e))
+        return g
