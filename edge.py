@@ -19,6 +19,3 @@ class Edge:
         Returns tupla (source, target) to identify Edge
         """
         return self.edge
-
-
-import graphviz

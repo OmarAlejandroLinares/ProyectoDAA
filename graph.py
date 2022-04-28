@@ -194,5 +194,3 @@ class Graph:
         file.write(dot.source)
         file.close()
         return dot
-
-   
