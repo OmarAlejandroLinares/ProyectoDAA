@@ -226,6 +226,10 @@ class Graph:
                     q.append(w.id)
                     g.add_vertex(w)
                     g.add_edge(edge.Edge(v, e), True)
+            
+        for key in self.vertices:
+            self.vertices[key].attributes[DISCOVERED] = False
+
         return g
 
     def dfs(self, s):
@@ -255,6 +259,10 @@ class Graph:
                 for e in self.get_adjacent_vertices_by_vertex(w.id,
                                                               adjacent_type):
                     stack.append((w.id, e))
+        
+        for key in self.vertices:
+            self.vertices[key].attributes[DISCOVERED] = False
+            
         return g
 
     def dfs_r(self, s):
@@ -281,4 +289,187 @@ class Graph:
                 g.add_edge(edge.Edge(source, w.id), True)
             for e in self.get_adjacent_vertices_by_vertex(w.id, adjacent_type):
                 self.dfs_rec(g, (w.id, e))
+        return g
+
+    def dijkstra(self, s, t):
+        """
+        dijkstra is an algorithm for finding the shortest paths between nodes in a graph.
+        :param s: node source
+        :param t: node target
+        :return g graph generated with the shortest path from source to target 
+        """
+        l = []
+        dist = {}
+        prev = {}
+        discovered = {}
+        for v in self.get_vertices():
+            dist[v] = float('inf')
+            prev[v] = None
+            discovered[v] = False
+        dist[s] = 0
+        l.append((s, dist[s]))
+        while len(l) != 0:
+            u = min(l, key=lambda x: x[1])
+            l.remove(u)
+            u = u[0]
+            discovered[u] = True
+            if u == t:
+                break
+            for v in self.get_adjacent_vertices_by_vertex(u):
+                if not discovered[v]:
+                    alt = dist[u] + self.get_edge((u, v)).attr["WEIGHT"]
+                    if alt < dist[v]:
+                        dist[v] = alt
+                        prev[v] = u
+                        l.append((v, dist[v]))
+        # Create a graph according to visited nodes store in prev array
+        u = t
+        g = Graph(attr={DIRECTED: True})
+        while u is not None:
+            g.add_vertex(vertex.Vertex(u, {"WEIGHT": dist[u]}))
+            if prev[u] is not None:
+                g.add_vertex(vertex.Vertex(prev[u], {"WEIGHT": dist[prev[u]]}))
+                g.add_edge(edge.Edge(prev[u], u))
+                u = prev[u]
+            else:
+                break
+        return g
+
+    def dijkstra_tree(self, s):
+        """
+        dijkstra_tree is an algorithm for finding tree of cost for each node according Dijkstra's algorithm.
+        :param s: node source
+        :param t: node target
+        :return g graph generated with the shortest path from source to target 
+        """
+        l = []
+        dist = {}
+        prev = {}
+        discovered = {}
+        g = Graph(attr={DIRECTED: True})
+        g.add_vertex(vertex.Vertex(s, {"WEIGHT": 0}))
+        for v in self.get_vertices():
+            dist[v] = float('inf')
+            prev[v] = None
+            discovered[v] = False
+        dist[s] = 0
+        l.append((s, dist[s]))
+        while len(l) != 0:
+            u = min(l, key=lambda x: x[1])
+            l.remove(u)
+            u = u[0]
+            discovered[u] = True
+            for v in self.get_adjacent_vertices_by_vertex(u):
+                if not discovered[v]:
+                    alt = dist[u] + self.get_edge((u, v)).attr["WEIGHT"]
+                    if alt < dist[v]:
+                        dist[v] = alt
+                        prev[v] = u
+                        l.append((v, dist[v]))
+                        g.add_vertex(vertex.Vertex(v, {"WEIGHT": dist[v]}))
+                        g.add_edge(edge.Edge(u, v, {"WEIGHT": dist[v]}))
+
+        return g
+
+    def find(self, parent, i):
+        """
+        find is a utility function to find set of an element i
+        :param parent: parent node source
+        :param i: node source
+        """
+        if parent[i] == i:
+            return i
+        return self.find(parent, parent[i])
+
+    def KruskalD(self):
+        """
+        KruskalD is a function based on Krustal's algorithm to find a minimum spanning forest of an undirected edge-weighted graph. 
+        :return g graph representing minimum spannng forest 
+        """
+        g = Graph(attr={DIRECTED: False})
+        # Create set for each v of V[G]
+        parent = []
+        rank = []
+        for v in self.get_vertices():
+            parent.append(v)
+            rank.append(0)
+
+        # Sort edges by weight
+        q = sorted(self.edges.items(), key=lambda e: e[1].attr["WEIGHT"])
+        for e in q:
+            (u, v) = e[0]
+            v1 = self.find(parent, u)
+            v2 = self.find(parent, v)
+            if v1 != v2:
+                g.add_vertex(vertex.Vertex(u))
+                g.add_vertex(vertex.Vertex(v))
+                g.add_edge(edge.Edge(u, v, {"WEIGHT": e[1].attr["WEIGHT"]}))
+                if rank[v1] < rank[v2]:
+                    parent[v1] = v2
+                    rank[v2] += 1
+                else:
+                    parent[v2] = v1
+                    rank[v1] += 1
+        return g
+
+    def Kruskal(self):
+        """
+        Kruskal is a function based on Inverse Krustal's algorithm to find a minimum spanning forest of an undirected edge-weighted graph. 
+        :return g graph representing minimum spannng forest 
+        """
+        g = self.clone()
+        # Sort edges by weight descendent
+        q = sorted(self.edges.items(), key=lambda e: e[1].attr["WEIGHT"],
+                   reverse=True)
+        for e in q:
+            # remove e  
+            g.edges.pop(e[0])
+            # clear weight
+            for k in self.vertices:
+                g.vertices[k].attributes["DISCOVERED"] = False
+            # valid if there is connected graph 
+            if len(g.vertices) != len(g.bfs(0).vertices):
+                g.add_edge(e[1])
+        return g
+
+    def Prim(self):
+        """
+        Prim is a function based on  Prim's algorithm to find a minimum spanning forest of an undirected edge-weighted graph. 
+        :return g graph representing minimum spannng forest 
+        """
+        g = Graph(attr={DIRECTED: False})
+        distance = [sys.maxsize] * len(self.vertices)
+        parent = [None] * len(self.vertices)
+        set = [False] * len(self.vertices)
+
+        distance[0] = 0
+        parent[0] = -1
+
+        for i in self.vertices:
+            # Search vertex with minimum distance
+            min_index = 0
+            min = sys.maxsize
+            for v in self.vertices:
+                if distance[v] < min and set[v] is False:
+                    min = distance[v]
+                    min_index = v
+            u = min_index
+
+            # Add u vertex in set to not use it in other iteration 
+            set[u] = True
+            g.add_vertex(vertex.Vertex(u))
+
+            # Iterate all adjacent vertices of u vertex and update distance 
+            for v in self.get_adjacent_vertices_by_vertex(u):
+                if set[v] is False and distance[v] > \
+                        self.get_edge((u, v)).attr["WEIGHT"]:
+                    distance[v] = self.get_edge((u, v)).attr["WEIGHT"]
+                    parent[v] = u
+
+        for i in self.vertices:
+            if i == 0:
+                continue
+            if parent[i] is not None:
+                g.add_edge(edge.Edge(parent[i], i, {"WEIGHT": self.get_edge((parent[i], i)).attr["WEIGHT"]}))
+
         return g
