@@ -27,3 +27,8 @@ In order to correctly replicate the results obtained with this project, the foll
 
 ## Results
 The results obtained, which are the 18 **.png** images corresponding to the 18 **.gv** files obtained by 3 different tests for each of the 6 models, can be found at *gv/images/*.
+
+# Project 2 - BFS and DFS algorithms.
+Project made by Omar Alejandro Linares Escobar for the subject "Design and Analysis of Algorithms".
+## Objective of the project. 
+This second project improves the previous one by adding the opportunity to execute the BFS and DFS algorithms in any of the six graph generation methods, thus generating its .gv file and converting it into an image in a .pdf file.
