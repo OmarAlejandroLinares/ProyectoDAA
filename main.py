@@ -29,7 +29,7 @@ dot4.render('Mesh_dfs_r_100','dfs_r', view=True)
 
 # #Mesh 500
 g    = models.mesh(50,10)
-dot  = g.create_graphviz('Mesh_500x10')
+dot  = g.create_graphviz('Mesh_50x10')
 g2 = g.bfs(0)
 dot = g2.create_graphviz('Mesh_bfs_500')
 dot.render('Mesh_bfs_500', view=True)
