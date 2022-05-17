@@ -1,0 +1,9 @@
+digraph {
+	499 [label="Node: 499
+Node source: 0
+WEIGHT (10)"]
+	0 [label="Node: 0
+Node source: 0
+WEIGHT (0)"]
+	0 -> 499
+}

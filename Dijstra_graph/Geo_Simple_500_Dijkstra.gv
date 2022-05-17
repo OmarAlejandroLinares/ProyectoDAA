@@ -1,0 +1,29 @@
+digraph {
+	499 [label="Node: 499
+Node source: 0
+WEIGHT (8)"]
+	428 [label="Node: 428
+Node source: 0
+WEIGHT (6)"]
+	384 [label="Node: 384
+Node source: 0
+WEIGHT (5)"]
+	310 [label="Node: 310
+Node source: 0
+WEIGHT (3)"]
+	399 [label="Node: 399
+Node source: 0
+WEIGHT (2)"]
+	396 [label="Node: 396
+Node source: 0
+WEIGHT (1)"]
+	0 [label="Node: 0
+Node source: 0
+WEIGHT (0)"]
+	428 -> 499
+	384 -> 428
+	310 -> 384
+	399 -> 310
+	396 -> 399
+	0 -> 396
+}

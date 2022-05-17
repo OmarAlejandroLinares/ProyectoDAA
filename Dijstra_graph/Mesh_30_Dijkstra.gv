@@ -1,0 +1,73 @@
+digraph {
+	29 [label="Node: 29
+Node source: 0
+WEIGHT (80)"]
+	28 [label="Node: 28
+Node source: 0
+WEIGHT (79)"]
+	26 [label="Node: 26
+Node source: 0
+WEIGHT (77)"]
+	24 [label="Node: 24
+Node source: 0
+WEIGHT (68)"]
+	22 [label="Node: 22
+Node source: 0
+WEIGHT (59)"]
+	20 [label="Node: 20
+Node source: 0
+WEIGHT (52)"]
+	18 [label="Node: 18
+Node source: 0
+WEIGHT (46)"]
+	16 [label="Node: 16
+Node source: 0
+WEIGHT (37)"]
+	14 [label="Node: 14
+Node source: 0
+WEIGHT (33)"]
+	12 [label="Node: 12
+Node source: 0
+WEIGHT (32)"]
+	10 [label="Node: 10
+Node source: 0
+WEIGHT (23)"]
+	11 [label="Node: 11
+Node source: 0
+WEIGHT (21)"]
+	9 [label="Node: 9
+Node source: 0
+WEIGHT (17)"]
+	7 [label="Node: 7
+Node source: 0
+WEIGHT (16)"]
+	5 [label="Node: 5
+Node source: 0
+WEIGHT (15)"]
+	4 [label="Node: 4
+Node source: 0
+WEIGHT (12)"]
+	2 [label="Node: 2
+Node source: 0
+WEIGHT (8)"]
+	0 [label="Node: 0
+Node source: 0
+WEIGHT (0)"]
+	28 -> 29
+	26 -> 28
+	24 -> 26
+	22 -> 24
+	20 -> 22
+	18 -> 20
+	16 -> 18
+	14 -> 16
+	12 -> 14
+	10 -> 12
+	11 -> 10
+	9 -> 11
+	7 -> 9
+	5 -> 7
+	4 -> 5
+	2 -> 4
+	0 -> 2
+}
