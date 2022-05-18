@@ -36,4 +36,4 @@ This second project improves the previous one by adding the opportunity to execu
 # Project 3 - Dijkstra algorithm.
 Project made by Omar Alejandro Linares Escobar for the subject "Design and Analysis of Algorithms".
 ## Objective of the project. 
-This third project improves the previous one by adding the opportunity to execute the Dijkstra algorithm in any of the six graph generation methods, thus generating its .gv file and converting it into an image in a .jpg file by the use of Gephi software, restoring them in a new folder called Dijstra_graph.
+This third project improves the previous one by adding the opportunity to execute the Dijkstra algorithm in any of the six graph generation methods, thus generating its .gv file and converting it into an image in a .jpg file by the use of Gephi software, restoring them in a new folder called dijkstra_graph.
