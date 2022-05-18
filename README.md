@@ -32,3 +32,8 @@ The results obtained, which are the 18 **.png** images corresponding to the 18 *
 Project made by Omar Alejandro Linares Escobar for the subject "Design and Analysis of Algorithms".
 ## Objective of the project. 
 This second project improves the previous one by adding the opportunity to execute the BFS and DFS algorithms in any of the six graph generation methods, thus generating its .gv file and converting it into an image in a .pdf file.
+
+# Project 3 - Dijkstra algorithm.
+Project made by Omar Alejandro Linares Escobar for the subject "Design and Analysis of Algorithms".
+## Objective of the project. 
+This third project improves the previous one by adding the opportunity to execute the Dijkstra algorithm in any of the six graph generation methods, thus generating its .gv file and converting it into an image in a .jpg file by the use of Gephi software, restoring them in a new folder called Dijstra_graph.
