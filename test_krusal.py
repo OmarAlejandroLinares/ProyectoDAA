@@ -5,201 +5,201 @@ from random import randint
 
 init = time.time()
 
-print( '.....................')
-print( 'Algoritmo de Malla')
-print( 'Generando el grafo 30' )
+# print( '.....................')
+# print( 'Algoritmo de Malla')
+# print( 'Generando el grafo 30' )
 
-g    = models.mesh( 15, 2 )
+# g    = models.mesh( 15, 2 )
 
-for i in g.edges.values():
-    i.attr["WEIGHT"] = randint( 1, 10 )
+# for i in g.edges.values():
+#     i.attr["WEIGHT"] = randint( 1, 10 )
 
-dot = g.create_graphviz( 'Mesh_30', attr_label_edge="WEIGHT" )
+# dot = g.create_graphviz( 'Mesh_30', attr_label_edge="WEIGHT" )
 
-print( 'Iniciando algoritmo de KruskalD' )
+# print( 'Iniciando algoritmo de KruskalD' )
 
-g_kld   = g.KruskalD()
-dot_kld = g_kld.create_graphviz('Mesh_30_KruskalD', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Mesh_15_KruskalID', view=True )
+# g_kld   = g.KruskalD()
+# dot_kld = g_kld.create_graphviz('Mesh_30_KruskalD', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Mesh_15_KruskalID', view=True )
 
 
-print( 'Iniciando algoritmo de Kruskal' )
+# print( 'Iniciando algoritmo de Kruskal' )
 
-g_k   = g.Kruskal()
-dot_k = g_kld.create_graphviz('Mesh_30_Kruskal', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Mesh_15_Kruskal', view=True )
+# g_k   = g.Kruskal()
+# dot_k = g_kld.create_graphviz('Mesh_30_Kruskal', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Mesh_15_Kruskal', view=True )
 
 
-print( 'Iniciando algoritmo de Prim' )
+# print( 'Iniciando algoritmo de Prim' )
 
-g_k   = g.Prim()
-dot_k = g_kld.create_graphviz('Mesh_30_Prim', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Mesh_15_Prim', view=True )
+# g_k   = g.Prim()
+# dot_k = g_kld.create_graphviz('Mesh_30_Prim', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Mesh_15_Prim', view=True )
 
 
-print( 'Generando el grafo 500' )
+# print( 'Generando el grafo 500' )
 
 
-g    = models.mesh( 25, 20 )
+# g    = models.mesh( 25, 20 )
 
-for i in g.edges.values():
-    i.attr["WEIGHT"] = randint( 1, 10 )
+# for i in g.edges.values():
+#     i.attr["WEIGHT"] = randint( 1, 10 )
 
-dot = g.create_graphviz( 'Mesh_500', attr_label_edge="WEIGHT" )
+# dot = g.create_graphviz( 'Mesh_500', attr_label_edge="WEIGHT" )
 
-print( 'Iniciando algoritmo de KruskalD' )
+# print( 'Iniciando algoritmo de KruskalD' )
 
-g_kld   = g.KruskalD()
-dot_kld = g_kld.create_graphviz('Mesh_500_KruskalD', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Mesh_500_KruskalID', view=True )
+# g_kld   = g.KruskalD()
+# dot_kld = g_kld.create_graphviz('Mesh_500_KruskalD', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Mesh_500_KruskalID', view=True )
 
 
-print( 'Iniciando algoritmo de Kruskal' )
+# print( 'Iniciando algoritmo de Kruskal' )
 
-g_k   = g.Kruskal()
-dot_k = g_kld.create_graphviz('Mesh_500_Kruskal', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Mesh_500_Kruskal', view=True )
+# g_k   = g.Kruskal()
+# dot_k = g_kld.create_graphviz('Mesh_500_Kruskal', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Mesh_500_Kruskal', view=True )
 
 
-print( 'Iniciando algoritmo de Prim' )
+# print( 'Iniciando algoritmo de Prim' )
 
-g_k   = g.Prim()
-dot_k = g_kld.create_graphviz('Mesh_500_Prim', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Mesh_500_Prim', view=True )
+# g_k   = g.Prim()
+# dot_k = g_kld.create_graphviz('Mesh_500_Prim', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Mesh_500_Prim', view=True )
 
 
-print('Grafos de Malla completado')
-print('..........................')
+# print('Grafos de Malla completado')
+# print('..........................')
 
-#Erdos Rengy
-print( 'Algoritmo de Erdos-Rengy')
-print( 'Generando el grafo de 30' )
+# #Erdos Rengy
+# print( 'Algoritmo de Erdos-Rengy')
+# print( 'Generando el grafo de 30' )
 
-g    = models.erdos_rengy( 30, 40 )
+# g    = models.erdos_rengy( 30, 40 )
 
-for i in g.edges.values():
-    i.attr["WEIGHT"] = randint( 1, 10 )
+# for i in g.edges.values():
+#     i.attr["WEIGHT"] = randint( 1, 10 )
 
-dot = g.create_graphviz( 'Erdos_Rengy_30', attr_label_edge="WEIGHT" )
+# dot = g.create_graphviz( 'Erdos_Rengy_30', attr_label_edge="WEIGHT" )
 
-print( 'Iniciando algoritmo de KruskalD' )
+# print( 'Iniciando algoritmo de KruskalD' )
 
-g_kld   = g.KruskalD()
-dot_kld = g_kld.create_graphviz('Erdos_Rengy_30_KuskalD', attr_label_edge="WEIGHT", source=0)
-dot.render( 'ErdosRengy_30_KruskalID', view=True )
+# g_kld   = g.KruskalD()
+# dot_kld = g_kld.create_graphviz('Erdos_Rengy_30_KuskalD', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'ErdosRengy_30_KruskalID', view=True )
 
 
-print( 'Iniciando algoritmo de Kruskal' )
+# print( 'Iniciando algoritmo de Kruskal' )
 
-g_k   = g.Kruskal()
-dot_k = g_kld.create_graphviz('Erdos_Rengy_30_Kruskal', attr_label_edge="WEIGHT", source=0)
-dot.render( 'ErdosRengy_30_Kruskal', view=True )
+# g_k   = g.Kruskal()
+# dot_k = g_kld.create_graphviz('Erdos_Rengy_30_Kruskal', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'ErdosRengy_30_Kruskal', view=True )
 
 
-print( 'Iniciando algoritmo de Prim' )
+# print( 'Iniciando algoritmo de Prim' )
 
-g_k   = g.Prim()
-dot_k = g_kld.create_graphviz('Erdos_Rengy_30_Prim', attr_label_edge="WEIGHT", source=0)
-dot.render( 'ErdosRengy_30_Prim', view=True )
+# g_k   = g.Prim()
+# dot_k = g_kld.create_graphviz('Erdos_Rengy_30_Prim', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'ErdosRengy_30_Prim', view=True )
 
 
-print( 'Generando el grafo 500' )
+# print( 'Generando el grafo 500' )
 
-g    = models.erdos_rengy( 500, 600 )
+# g    = models.erdos_rengy( 500, 600 )
 
-for i in g.edges.values():
-    i.attr["WEIGHT"] = randint( 1, 10 )
+# for i in g.edges.values():
+#     i.attr["WEIGHT"] = randint( 1, 10 )
 
-dot = g.create_graphviz( 'Erdos_Rengy_500', attr_label_edge="WEIGHT" )
+# dot = g.create_graphviz( 'Erdos_Rengy_500', attr_label_edge="WEIGHT" )
 
 
-print( 'Iniciando algoritmo de KruskalD' )
+# print( 'Iniciando algoritmo de KruskalD' )
 
-g_kld   = g.KruskalD()
-dot_kld = g_kld.create_graphviz('Erdos_Rengy_500_KruskalD', attr_label_edge="WEIGHT", source=0)
-dot.render( 'ErdosRengy_500_KruskalID', view=True )
+# g_kld   = g.KruskalD()
+# dot_kld = g_kld.create_graphviz('Erdos_Rengy_500_KruskalD', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'ErdosRengy_500_KruskalID', view=True )
 
 
-print( 'Iniciando algoritmo de Kruskal' )
+# print( 'Iniciando algoritmo de Kruskal' )
 
-g_k   = g.Kruskal()
-dot_k = g_kld.create_graphviz('Erdos_Rengy_500_Kruskal', attr_label_edge="WEIGHT", source=0)
-dot.render( 'ErdosRengy_500_Kruskal', view=True )
+# g_k   = g.Kruskal()
+# dot_k = g_kld.create_graphviz('Erdos_Rengy_500_Kruskal', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'ErdosRengy_500_Kruskal', view=True )
 
 
-print( 'Iniciando algoritmo de Prim' )
+# print( 'Iniciando algoritmo de Prim' )
 
-g_k   = g.Prim()
-dot_k = g_kld.create_graphviz('Erdos_Rengy_500_Prim', attr_label_edge="WEIGHT", source=0)
-dot.render( 'ErdosRengy_500_Prim', view=True )
+# g_k   = g.Prim()
+# dot_k = g_kld.create_graphviz('Erdos_Rengy_500_Prim', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'ErdosRengy_500_Prim', view=True )
 
 
-print('Grafos de Erdos Rengy completado')
-print('..........................')
+# print('Grafos de Erdos Rengy completado')
+# print('..........................')
 
-#Gilbert
-print( 'Algoritmo de Gilbert')
-print( 'Generando el grafo 30' )
+# #Gilbert
+# print( 'Algoritmo de Gilbert')
+# print( 'Generando el grafo 30' )
 
-g    = models.gilbert( 30, 0.3 )
+# g    = models.gilbert( 30, 0.1 )
 
-for i in g.edges.values():
-    i.attr["WEIGHT"] = randint( 1, 10 )
+# for i in g.edges.values():
+#     i.attr["WEIGHT"] = randint( 1, 10 )
 
-dot = g.create_graphviz( 'Gilbert_30', attr_label_edge="WEIGHT" )
+# dot = g.create_graphviz( 'Gilbert_30', attr_label_edge="WEIGHT" )
 
-print( 'Iniciando algoritmo de KruskalD' )
+# print( 'Iniciando algoritmo de KruskalD' )
 
-g_kld   = g.KruskalD()
-dot_kld = g_kld.create_graphviz('Gilbert_30_KruskalD', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Gilbert_30_KruskalID', view=True )
+# g_kld   = g.KruskalD()
+# dot_kld = g_kld.create_graphviz('Gilbert_30_KruskalD', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Gilbert_30_KruskalID', view=True )
 
 
-print( 'Iniciando algoritmo de Kruskal' )
+# print( 'Iniciando algoritmo de Kruskal' )
 
-g_k   = g.Kruskal()
-dot_k = g_kld.create_graphviz('Gilbert_30_Kruskal', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Gilbert_30_Kruskal', view=True )
+# g_k   = g.Kruskal()
+# dot_k = g_kld.create_graphviz('Gilbert_30_Kruskal', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Gilbert_30_Kruskal', view=True )
 
 
-print( 'Iniciando algoritmo de Prim' )
+# print( 'Iniciando algoritmo de Prim' )
 
-g_k   = g.Prim()
-dot_k = g_kld.create_graphviz('Gilbert_30_Prim', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Gilbert_30_Prim', view=True )
+# g_k   = g.Prim()
+# dot_k = g_kld.create_graphviz('Gilbert_30_Prim', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Gilbert_30_Prim', view=True )
 
 
-print( 'Generando el grafo 500' )
+# print( 'Generando el grafo 500' )
 
-g    = models.gilbert( 500, .2 )
+# g    = models.gilbert( 500, .1 )
 
-for i in g.edges.values():
-    i.attr["WEIGHT"] = randint( 1, 10 )
+# for i in g.edges.values():
+#     i.attr["WEIGHT"] = randint( 1, 10 )
 
-dot = g.create_graphviz( 'Gilbert_500', attr_label_edge="WEIGHT" )
+# dot = g.create_graphviz( 'Gilbert_500', attr_label_edge="WEIGHT" )
 
-print( 'Iniciando algoritmo de KruskalD' )
+# print( 'Iniciando algoritmo de KruskalD' )
 
-g_kld   = g.KruskalD()
-dot_kld = g_kld.create_graphviz('Gilbert_500_KruskalD', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Gilbert_500_KruskalID', view=True )
+# g_kld   = g.KruskalD()
+# dot_kld = g_kld.create_graphviz('Gilbert_500_KruskalD', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Gilbert_500_KruskalID', view=True )
 
 
-print( 'Iniciando algoritmo de Kruskal' )
+# print( 'Iniciando algoritmo de Kruskal' )
 
-g_k   = g.Kruskal()
-dot_k = g_kld.create_graphviz('Gilbert_500_Kruskal', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Gilbert_500_Kruskal', view=True )
+# g_k   = g.Kruskal()
+# dot_k = g_kld.create_graphviz('Gilbert_500_Kruskal', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Gilbert_500_Kruskal', view=True )
 
 
-print( 'Iniciando algoritmo de Prim' )
+# print( 'Iniciando algoritmo de Prim' )
 
-g_k   = g.Prim()
-dot_k = g_kld.create_graphviz('Gilbert_500_Prim', attr_label_edge="WEIGHT", source=0)
-dot.render( 'Gilbert_500_Prim', view=True )
+# g_k   = g.Prim()
+# dot_k = g_kld.create_graphviz('Gilbert_500_Prim', attr_label_edge="WEIGHT", source=0)
+# dot.render( 'Gilbert_500_Prim', view=True )
 
 
-print('Grafos de Gilbert completado')
+# print('Grafos de Gilbert completado')
 print('..........................')
 
 # #Geo simple
